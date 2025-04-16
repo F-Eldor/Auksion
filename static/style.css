@@ -1,0 +1,357 @@
+html{
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding-top: 80px; 
+    
+}
+a{
+    text-decoration: none;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.3); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    height: 79px;
+}
+
+.header-wrapper {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo{
+    margin-left: 30px;
+}
+.logo h4 {
+    margin: 0;
+    font-size: 24px;
+    color: black;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+nav ul a:hover {
+    color: #007bff;
+    transition: 0.3s;
+}
+
+.logout{
+    background-color: #007bff;
+    padding: 9px 18px;
+    border-radius: 15px;
+    border: none;
+}
+.logout:hover{
+    background-color: #e6f0fa;
+    border: 1px solid #007bff;
+    transition: 0.3s;
+    
+}
+.logout > a:hover{
+    color: #007bff;
+    transition: 0.3s;
+}
+
+.logout > a{
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+
+
+
+.product-list {
+    padding: 10px 20px;
+    text-align: center;
+    background: #e6f0fa;
+    
+}
+
+.product-list h1 {
+    font-size: 28px;
+    color: black;    
+    margin-bottom: 20px;
+    font-size: 60px;
+    padding-top: 30px;
+}
+
+.product-list h2 {
+    font-size: 24px;
+    color: black;
+        margin-bottom: 20px;
+}
+
+.product-list ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product-list .product-item {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: left;
+}
+
+.product-list .product-item a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.product-list .product-item a:hover {
+    color: #0056b3;
+}
+
+.product-list .product-item p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.product-list p {
+    font-size: 16px;
+    color: #666;
+}
+
+.hero-section {
+    text-align: center;
+    padding: 0px 20px;
+    background: #e6f0fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.content {
+    margin-bottom: 30px;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #333;
+}
+
+.hero-section h1 {
+    font-size: 48px;
+    margin: 20px 0;
+    color: #333;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.search-bar select, .search-bar button {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 15px;
+}
+
+.search-bar button {
+    background: #007bff;
+    color: white;
+    border: 1px solid;
+    cursor: pointer;
+}
+
+.car-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.browse-by-type {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.browse-by-type h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.car-types {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.car-type {
+    text-align: center;
+}
+
+
+
+.car-type p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+
+
+
+.car-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px 20px;
+    flex-wrap: wrap;
+}
+
+.option {
+    width: 300px;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.looking-for-car {
+    background: #e6f0fa;
+}
+
+.sell-car {
+    background: #fce4ec;
+}
+
+.option h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.option p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.option button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.looking-for-car button {
+    background: #007bff;
+    color: white;
+}
+
+.sell-car button {
+    background: #ff4d4f;
+    color: white;
+}
+
+
+
+
+.footer {
+    background: #333; 
+    color: white;
+    padding: 50px 20px;
+}
+
+.footer-wrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 150px;
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-column ul li a:hover {
+    color: #fff;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a img:hover {
+    transform: scale(1.2);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #444;
+    margin-top: 30px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 14px;
+    color: #ccc;
+}

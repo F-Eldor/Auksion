@@ -1,0 +1,21 @@
+body{
+    width: 100vw;
+    height: 800px;
+}
+.card{
+    margin-top: 100px;
+    height: 400px;
+}
+input{
+    margin: 0;
+    padding: 10px 20px;
+}
+#file{
+    background-color: aliceblue;
+    color: #077bff;
+    padding: 5px 10xp;
+}
+h1{
+    padding-top: 70px;
+    color: #077bff;
+}

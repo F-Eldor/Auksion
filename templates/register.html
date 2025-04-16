@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registratsiya</title>
+    <link rel="stylesheet" href="../static/register.css">
+</head>
+<body>
+<div class="card">
+    <h1>Registratsiya</h1>
+    <form method="POST">
+        <input type="text" name="foydalanuvchi_nomi" placeholder="Foydalanuvchi nomi">
+        <br>
+        <input type="password" name="parol" placeholder="Parol">
+        <br>
+        <button type="submit">Register</button>
+    </form>
+    
+    
+    {% if xabar %}
+    <p style="color: red;">{{ xabar }}</p>
+    {% endif %}
+</div>
+    <h3>Have an Account?</h3>
+    <button class="log"><a href="/login">Sign Up</a></button>
+</body>
+</html>

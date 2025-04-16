@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bosh Sahifa</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-wrapper">
+            <div class="logo">
+                <h4>Ilmla Cars</h4>
+            </div>
+
+            <nav>
+                <ul>
+                    <a href="#home"><li>Home</li></a>
+                    <a href="#cars"><li>Cars</li></a>
+                    <a href="#about"><li>About</li></a>
+                    <a href="#contact"><li>Contact</li></a>
+                </ul>
+            </nav>
+
+            <div class="re-log">
+                {% if session['foydalanuvchi'] %}
+                    <button class="logout"><a href="/login">Log Out</a></button>
+                {% else %}
+                    <button class="register"><a href="/register">Register</a></button>
+                    <button class="log"><a href="/login">Sign Up</a></button>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+
+    <section class="product-list">
+        {% if session['foydalanuvchi'] %}
+            <h1>Welcome {{ session['foydalanuvchi'] }}!</h1>
+        {% endif %}
+
+    </section>    
+    
+    <div class="hero-section" id="home">
+        <div class="content">
+            <p class="subtitle">Find the best cars new or used just for you</p>
+            <h1>Find Your Dream Car</h1>
+            <div class="search-bar">
+                <select>
+                    <option>Brand</option>
+                    <option>BMW</option>
+                    <option>Mercedes</option>
+                    <option>BYD</option>
+                    <option>Tesla</option>
+                </select>
+                <select>
+                    <option>Model</option>
+                </select>
+                <select>
+                    <option>Year</option>
+                </select>
+                <select>
+                    <option>Price</option>
+                </select>
+                <a href="#cars"><button>Search</button></a>
+            </div>
+        </div>
+        <img src="https://images-porsche.imgix.net/-/media/5CCEFD7BFDEC44B0BFEDD8FC51856632_A716CD4802D241E3BE787EF14B813101_911-gt3-rs-side?w=2560&h=699&q=45&crop=faces%2Centropy%2Cedges&auto=format" alt="Car Image" class="car-image">
+    </div>
+    
+    <section class="browse-by-type">
+        <h2>Browse by Type</h2>
+        <div class="car-types">
+            <div class="car-type">
+                <a href="https://www.caranddriver.com/rankings/best-suvs"><p>SUV</p></a>
+            </div>
+            <div class="car-type">
+                <a href="https://autowise.com/sedan/"><p>Sedan</p></a>
+            </div>
+            <div class="car-type">
+                <a href="https://www.olx.uz/transport/gruzovye-avtomobili/"><p>Truck</p></a>
+            </div>
+            <div class="car-type">
+                <a href="https://autoline.uz/-/kupe--c1646"><p>Coupe</p></a>
+            </div>
+            <div class="car-type">
+               <a href="https://www.linkedin.com/pulse/6-best-convertible-cars-consider-summer-lee-duerden-1"> <p>Convertible</p></a>
+            </div>
+            <div class="car-type">
+               <a href="https://www.linkedin.com/pulse/electric-cars-101-how-ev-motors-work-tech-differences-hurst"> <p>Electric</p></a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="car-options" >
+        <div class="option looking-for-car">
+            <h3>Are You Looking For a <br>Car?</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+            <a href="#cars"></a><button>Browse Car</button>
+        </div>
+        <div class="option sell-car">
+            <h3>Do You Want to Sell <br> Car?</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+            <a href="mahsulot_qoshish"><button>Sell Car</button></a> 
+        </div>
+    </section>
+    
+    <section class="product-list cars" id="cars">
+        <h2>Cars list</h2>
+        {% if mahsulotlar %}
+            <ul>
+            {% for mahsulot in mahsulotlar %}
+                <li class="product-item">
+                    <a href="/mahsulot/{{ mahsulot[0] }}">{{ mahsulot[1] }}</a>
+                    <p>Tavsif: {{ mahsulot[2] }}</p>
+                    <p>Hozirgi narx: {{ mahsulot[4] }} so'm</p>
+                    <img src="{{ mahsulot[7] }}" width="200px" alt="Mahsulot rasmi">
+
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>List is empty for now</p>
+        {% endif %}
+    </section>
+
+
+    <footer class="footer" id="about">
+        <div class="footer-wrapper">
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Mobile</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">How we work</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Cars</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Our Brands</h3>
+                <ul>
+                    <li><a href="#">Audi</a></li>
+                    <li><a href="#">BMW</a></li>
+                    <li><a href="#">Mercedes</a></li>
+                    <li><a href="#">Toyota</a></li>
+                    <li><a href="#">Tesla</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Vehicle Types</h3>
+                <ul>
+                    <li><a href="#">SUV</a></li>
+                    <li><a href="#">Sedan</a></li>
+                    <li><a href="#">Coupe</a></li>
+                    <li><a href="#">Convertible</a></li>
+                    <li><a href="#">Electric</a></li>
+                </ul>
+            </div>
+           
+            <div class="footer-column" id="contact">
+                <h3>Contact With Us</h3>
+                <div class="social-icons">
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733614.png" alt="Twitter"></a>
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Instagram"></a>
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733635.png" alt="YouTube"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 ILMLACARS. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

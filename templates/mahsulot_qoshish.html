@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahsulotlar ro'yxati</title>
+    <link rel="stylesheet" href="../static/login.css">
+    <link rel="stylesheet" href="../static/qoshish.css">
+</head>
+<body>
+    
+<h1>Mashina Qo'shish</h1>
+    <form method="post" enctype="multipart/form-data" class="card">
+
+        <input type="text" name="mahsulot_nomi" placeholder="Mashina nomi" required>
+        <br>
+        <input type="text" name="tavsifi" placeholder="Mashina tavsifi" required>
+        <br>
+        <input type="number" name="boshlangich_narx" placeholder="Boshlang'ich narx" required>
+        <br>
+        <input type="datetime-local" name="sotish_vaqti" placeholder="Sotish vaqti" required>
+        <br>
+        <input id="file" type="file" name="mashina_rasmi" placeholder="Mashina rasmi" required>
+        <br>
+        <button type="submit">Qo'shish</button>
+    </form>
+    
+</body>
+</html>
