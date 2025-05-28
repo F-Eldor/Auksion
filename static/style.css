@@ -1,45 +1,65 @@
-html{
+/* General styles */
+html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
 }
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    padding-top: 80px; 
-    
+    padding-top: 80px; /* header ostiga kontent chiqmasligi uchun */
 }
-a{
+
+a {
     text-decoration: none;
 }
+
+/* Header */
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.3); 
+    background: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    height: 79px;
+    height: 80px;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .header-wrapper {
-    margin-top: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 500px;
 }
 
-.logo{
-    margin-left: 30px;
+.logo {
+    margin-left: 20px;
 }
+
 .logo h4 {
     margin: 0;
     font-size: 24px;
-    color: black;
+    color: #000;
 }
 
+/* Nav */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+}
+
+/* Nav menu */
 nav ul {
     display: flex;
     list-style: none;
@@ -48,116 +68,82 @@ nav ul {
     gap: 20px;
 }
 
-nav ul a {
-    text-decoration: none;
-    color: black;
+nav ul li a {
+    color: #000;
     font-size: 16px;
+    transition: color 0.3s ease;
 }
 
-nav ul a:hover {
+nav ul li a:hover {
     color: #007bff;
-    transition: 0.3s;
 }
 
-.logout{
-    background-color: #007bff;
-    padding: 9px 18px;
+/* Re-log (login/logout buttons) */
+.re-log {
+    display: flex;
+    gap: 10px;
+}
+
+/* Buttons as links */
+.logout, .register, .log {
+    padding: 8px 16px;
     border-radius: 15px;
     border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+    background-color: #28a745;
+    color: #fff;
 }
-.logout:hover{
+
+.logout {
+    background-color: #007bff;
+}
+
+.logout:hover {
     background-color: #e6f0fa;
+    color: #007bff;
     border: 1px solid #007bff;
-    transition: 0.3s;
-    
-}
-.logout > a:hover{
-    color: #007bff;
-    transition: 0.3s;
 }
 
-.logout > a{
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
+.register:hover, .log:hover {
+    background-color: #e6f0fa;
+    color: #28a745;
+    border: 1px solid #28a745;
 }
 
-
-
-
-.product-list {
-    padding: 10px 20px;
-    text-align: center;
-    background: #e6f0fa;
-    
-}
-
-.product-list h1 {
-    font-size: 28px;
-    color: black;    
-    margin-bottom: 20px;
-    font-size: 60px;
-    padding-top: 30px;
-}
-
-.product-list h2 {
-    font-size: 24px;
-    color: black;
-        margin-bottom: 20px;
-}
-
-.product-list ul {
-    list-style: none;
+/* Remove button tags, style <a> tags instead */
+.logout a, .register a, .log a {
+    color: inherit;
     padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    display: inline;
 }
 
-.product-list .product-item {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: left;
+/* Hamburger menu button */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #000;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1100;
 }
 
-.product-list .product-item a {
-    text-decoration: none;
-    color: #007bff;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.product-list .product-item a:hover {
-    color: #0056b3;
-}
-
-.product-list .product-item p {
-    margin: 5px 0;
-    color: #666;
-}
-
-.product-list p {
-    font-size: 16px;
-    color: #666;
-}
-
+/* Hero Section */
 .hero-section {
     text-align: center;
-    padding: 0px 20px;
+    padding: 20px;
     background: #e6f0fa;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-}
-
-.content {
-    margin-bottom: 30px;
 }
 
 .subtitle {
@@ -176,19 +162,31 @@ nav ul a:hover {
     justify-content: center;
     gap: 10px;
     margin: 20px 0;
+    flex-wrap: wrap;
 }
 
 .search-bar select, .search-bar button {
     padding: 10px;
     font-size: 16px;
     border-radius: 15px;
+    border: 1px solid #ccc;
 }
 
 .search-bar button {
     background: #007bff;
-    color: white;
-    border: 1px solid;
+    color: #fff;
+    border: none;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background: #0056b3;
+}
+
+.search-bar button a {
+    color: #fff;
+    display: block;
 }
 
 .car-image {
@@ -196,6 +194,65 @@ nav ul a:hover {
     height: auto;
 }
 
+/* Product List */
+.product-list {
+    padding: 20px;
+    text-align: center;
+    background: #e6f0fa;
+}
+
+.product-list h1 {
+    font-size: 60px;
+    color: #000;
+    margin-top: 100px;
+}
+
+.product-list h2 {
+    font-size: 24px;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.product-list ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 300px;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+}
+
+.product-item a {
+    color: #007bff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.product-item a:hover {
+    color: #0056b3;
+}
+
+.product-item p {
+    margin: 5px 0;
+    color: #666;
+}
+
+/* Browse by Type */
 .browse-by-type {
     text-align: center;
     padding: 50px 20px;
@@ -213,21 +270,21 @@ nav ul a:hover {
     flex-wrap: wrap;
 }
 
-.car-type {
-    text-align: center;
-}
-
-
-
 .car-type p {
-    margin-top: 10px;
+    margin: 10px 0 0;
     font-size: 16px;
     color: #333;
+    padding: 10px 20px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
+.car-type p:hover {
+    background: #e6f0fa;
+}
 
-
-
+/* Car Options */
 .car-options {
     display: flex;
     justify-content: center;
@@ -237,7 +294,8 @@ nav ul a:hover {
 }
 
 .option {
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     padding: 30px;
     text-align: center;
     border-radius: 10px;
@@ -268,24 +326,31 @@ nav ul a:hover {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .looking-for-car button {
     background: #007bff;
-    color: white;
+    color: #fff;
+}
+
+.looking-for-car button:hover {
+    background: #0056b3;
 }
 
 .sell-car button {
     background: #ff4d4f;
-    color: white;
+    color: #fff;
 }
 
+.sell-car button:hover {
+    background: #e63946;
+}
 
-
-
+/* Footer */
 .footer {
-    background: #333; 
-    color: white;
+    background: #333;
+    color: #fff;
     padding: 50px 20px;
 }
 
@@ -306,7 +371,6 @@ nav ul a:hover {
 .footer-column h3 {
     font-size: 18px;
     margin-bottom: 20px;
-    color: #fff;
 }
 
 .footer-column ul {
@@ -320,8 +384,8 @@ nav ul a:hover {
 
 .footer-column ul li a {
     color: #ccc;
-    text-decoration: none;
     font-size: 14px;
+    transition: color 0.3s ease;
 }
 
 .footer-column ul li a:hover {
@@ -354,4 +418,100 @@ nav ul a:hover {
     margin: 0;
     font-size: 14px;
     color: #ccc;
+}
+
+/* Responsive */
+
+/* Hamburger menu */
+@media (max-width: 768px) {
+    /* Show hamburger */
+    .hamburger {
+        display: block;
+    }
+
+    /* Hide nav menu and re-log by default */
+    nav ul {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(57, 131, 183, 0.95);
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 100%;
+        padding: 20px 0;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+    }
+    .header-wrapper{
+        flex-direction: row;
+    }
+    nav ul.show {
+        display: flex !important;
+    }
+
+    /* Re-log hidden by default */
+    .re-log {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        background-color: rgba(255, 255, 255, 0.95);
+        position: absolute;
+        top: calc(80px + 100% + 10px);
+        right: 0;
+        width: 100%;
+        padding: 10px 0;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+    }
+
+    /* Show re-log when menu is shown */
+    nav ul.show + .re-log {
+        display: flex;
+    }
+
+    nav ul li {
+        margin-bottom: 15px;
+    }
+
+    .header-wrapper {
+        flex-direction: row;
+        gap: 10px;
+        width: 400px;
+    }
+
+    .hero-section h1 {
+        font-size: 36px;
+    }
+
+    .product-list h1 {
+        font-size: 40px;
+    }
+
+    .product-item, .option {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .car-types {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-bar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-bar select, .search-bar button {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .hero-section {
+        padding: 10px;
+    }
 }
