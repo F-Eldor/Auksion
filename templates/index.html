@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bosh Sahifa - Ilmla Cars</title>
+    <title>Bosh Sahifa - Eldr Cars</title>
     <link rel="stylesheet" href="/static/style.css">
     <link rel="icon" href="/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="header-wrapper">
             <div class="logo">
-                <h4>Ilmla Cars</h4>
+                <h1>Eldr Cars</h1>
             </div>
             <nav aria-label="Main navigation">
                 <ul id="nav-menu">
@@ -20,100 +21,81 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <div class="re-log">
+                <div class="auth-buttons">
                     {% if session['foydalanuvchi'] %}
                         <a href="/logout" class="logout">Log Out</a>
                     {% else %}
-                    <a href="/register" class="register">Register</a>
-                    <a href="/login" class="log">Sign Up</a>
+                        <a href="/register" class="register">Register</a>
+                        <a href="/login" class="login">Sign In</a>
                     {% endif %}
                 </div>
             </nav>
             <button class="hamburger" aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
-            
         </div>
     </header>
 
     <main>
-        <section class="product-list">
-            {% if session['foydalanuvchi'] %}
-                <h1>Welcome {{ session['foydalanuvchi'] }}!</h1>
-            {% endif %}
-        </section>
-
-        <section class="hero-section" id="home">
-            <div class="content">
-                <p class="subtitle">Find the best cars new or used just for you</p>
+        <section class="hero-section scroll-reveal" id="home">
+            <div class="hero-content scroll-reveal">
+                <p class="subtitle">Discover the Future of Driving</p>
                 <h1>Find Your Dream Car</h1>
                 <div class="search-bar">
-                    <select aria-label="Select car brand">
+                    <select aria-label="Select car brand" class="search-select">
                         <option>Brand</option>
                         <option>BMW</option>
                         <option>Mercedes</option>
                         <option>BYD</option>
                         <option>Tesla</option>
                     </select>
-                    <select aria-label="Select car model">
+                    <select aria-label="Select car model" class="search-select">
                         <option>Model</option>
                     </select>
-                    <select aria-label="Select car year">
+                    <select aria-label="Select car year" class="search-select">
                         <option>Year</option>
                     </select>
-                    <select aria-label="Select price range">
+                    <select aria-label="Select price range" class="search-select">
                         <option>Price</option>
                     </select>
-                    <button><a href="#cars" aria-label="Search cars">Search</a></button>
+                    <button class="search-button" aria-label="Search cars">Search</button>
                 </div>
             </div>
-            <img src="https://images-porsche.imgix.net/-/media/5CCEFD7BFDEC44B0BFEDD8FC51856632_A716CD4802D241E3BE787EF14B813101_911-gt3-rs-side?w=2560&h=699&q=45&crop=faces%2Centropy%2Cedges&auto=format" alt="Porsche 911 GT3 RS side view" class="car-image" loading="lazy">
+            <img src="https://images-porsche.imgix.net/-/media/5CCEFD7BFDEC44B0BFEDD8FC51856632_A716CD4802D241E3BE787EF14B813101_911-gt3-rs-side?w=2560&h=699&q=45&crop=faces%2Centropy%2Cedges&auto=format" alt="Porsche 911 GT3 RS side view" class="hero-image scroll-reveal" loading="lazy">
         </section>
 
-        <section class="browse-by-type">
+        <section class="browse-by-type scroll-reveal">
             <h2>Browse by Type</h2>
             <div class="car-types">
-                <div class="car-type">
-                    <a href="https://www.caranddriver.com/rankings/best-suvs" aria-label="Browse SUVs"><p>SUV</p></a>
-                </div>
-                <div class="car-type">
-                    <a href="https://autowise.com/sedan/" aria-label="Browse Sedans"><p>Sedan</p></a>
-                </div>
-                <div class="car-type">
-                    <a href="https://www.olx.uz/transport/gruzovye-avtomobili/" aria-label="Browse Trucks"><p>Truck</p></a>
-                </div>
-                <div class="car-type">
-                    <a href="https://autoline.uz/-/kupe--c1646" aria-label="Browse Coupes"><p>Coupe</p></a>
-                </div>
-                <div class="car-type">
-                    <a href="https://www.linkedin.com/pulse/6-best-convertible-cars-consider-summer-lee-duerden-1" aria-label="Browse Convertibles"><p>Convertible</p></a>
-                </div>
-                <div class="car-type">
-                    <a href="https://www.linkedin.com/pulse/electric-cars-101-how-ev-motors-work-tech-differences-hurst" aria-label="Browse Electric Cars"><p>Electric</p></a>
-                </div>
+                <div class="car-type scroll-reveal"><a href="https://www.caranddriver.com/rankings/best-suvs" aria-label="Browse SUVs">SUV</a></div>
+                <div class="car-type scroll-reveal"><a href="https://autowise.com/sedan/" aria-label="Browse Sedans">Sedan</a></div>
+                <div class="car-type scroll-reveal"><a href="https://www.olx.uz/transport/gruzovye-avtomobili/" aria-label="Browse Trucks">Truck</a></div>
+                <div class="car-type scroll-reveal"><a href="https://autoline.uz/-/kupe--c1646" aria-label="Browse Coupes">Coupe</a></div>
+                <div class="car-type scroll-reveal"><a href="https://www.linkedin.com/pulse/6-best-convertible-cars-consider-summer-lee-duerden-1" aria-label="Browse Convertibles">Convertible</a></div>
+                <div class="car-type scroll-reveal"><a href="https://www.linkedin.com/pulse/electric-cars-101-how-ev-motors-work-tech-differences-hurst" aria-label="Browse Electric Cars">Electric</a></div>
             </div>
         </section>
 
         <section class="car-options">
-            <div class="option looking-for-car">
-                <h3>Are You Looking For a <br>Car?</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
-                <a href="#cars"><button aria-label="Browse cars">Browse Car</button></a>
+            <div class="option option-buy scroll-reveal">
+                <h3>Looking for a Car?</h3>
+                <p>Explore our curated selection of premium vehicles tailored to your needs.</p>
+                <a href="#cars"><button aria-label="Browse cars">Browse Cars</button></a>
             </div>
-            <div class="option sell-car">
-                <h3>Do You Want to Sell <br> Car?</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
-                <a href="/mahsulot_qoshish"><button aria-label="Sell a car">Sell Car</button></a>
+            <div class="option option-sell scroll-reveal">
+                <h3>Sell Your Car</h3>
+                <p>List your car with us and reach millions of buyers effortlessly.</p>
+                <a href="/mahsulot_qoshish"><button aria-label="Sell a car">Sell Now</button></a>
             </div>
         </section>
 
-        <section class="product-list cars" id="cars">
-            <h2>Cars List</h2>
+        <section class="product-list scroll-reveal" id="cars">
+            <h2>Featured Cars</h2>
             {% if mahsulotlar %}
                 <ul>
                     {% for mahsulot in mahsulotlar %}
-                        <li class="product-item">
+                        <li class="product-item scroll-reveal">
                             <a href="/mahsulot/{{ mahsulot[0] }}" aria-label="View {{ mahsulot[1] }} details">{{ mahsulot[1] }}</a>
-                            <p>Tavsif: {{ mahsulot[2] }}</p>
-                            <p>Hozirgi narx: {{ mahsulot[4] }} so'm</p>
+                            <p>{{ mahsulot[2] }}</p>
+                            <p class="price">{{ mahsulot[4] }} so'm</p>
                             <img src="{{ mahsulot[7] }}" width="200" alt="{{ mahsulot[1] }} image" loading="lazy">
                         </li>
                     {% endfor %}
@@ -124,71 +106,85 @@
         </section>
     </main>
 
-    <footer class="footer" id="about">
+    <footer class="footer scroll-reveal" id="about">
         <div class="footer-wrapper">
             <div class="footer-column">
                 <h3>Company</h3>
                 <ul>
-                    <li><a href="/about" aria-label="About Ilmla Cars">About</a></li>
-                    <li><a href="/careers" aria-label="Careers at Ilmla Cars">Careers</a></li>
-                    <li><a href="/mobile" aria-label="Mobile app">Mobile</a></li>
-                    <li><a href="/blog" aria-label="Ilmla Cars blog">Blog</a></li>
-                    <li><a href="/how-we-work" aria-label="How we work">How we work</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/careers">Careers</a></li>
+                    <li><a href="/mobile">Mobile</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/how-we-work">How we work</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="#home" aria-label="Home page">Home</a></li>
-                    <li><a href="#cars" aria-label="Cars list">Cars</a></li>
-                    <li><a href="#about" aria-label="About section">About</a></li>
-                    <li><a href="#contact" aria-label="Contact section">Contact</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#cars">Cars</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h3>Our Brands</h3>
                 <ul>
-                    <li><a href="/brands/audi" aria-label="Audi cars">Audi</a></li>
-                    <li><a href="/brands/bmw" aria-label="BMW cars">BMW</a></li>
-                    <li><a href="/brands/mercedes" aria-label="Mercedes cars">Mercedes</a></li>
-                    <li><a href="/brands/toyota" aria-label="Toyota cars">Toyota</a></li>
-                    <li><a href="/brands/tesla" aria-label="Tesla cars">Tesla</a></li>
+                    <li><a href="/brands/audi">Audi</a></li>
+                    <li><a href="/brands/bmw">BMW</a></li>
+                    <li><a href="/brands/mercedes">Mercedes</a></li>
+                    <li><a href="/brands/toyota">Toyota</a></li>
+                    <li><a href="/brands/tesla">Tesla</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h3>Vehicle Types</h3>
                 <ul>
-                    <li><a href="/vehicles/suv" aria-label="SUV vehicles">SUV</a></li>
-                    <li><a href="/vehicles/sedan" aria-label="Sedan vehicles">Sedan</a></li>
-                    <li><a href="/vehicles/coupe" aria-label="Coupe vehicles">Coupe</a></li>
-                    <li><a href="/vehicles/convertible" aria-label="Convertible vehicles">Convertible</a></li>
-                    <li><a href="/vehicles/electric" aria-label="Electric vehicles">Electric</a></li>
+                    <li><a href="/vehicles/suv">SUV</a></li>
+                    <li><a href="/vehicles/sedan">Sedan</a></li>
+                    <li><a href="/vehicles/coupe">Coupe</a></li>
+                    <li><a href="/vehicles/convertible">Convertible</a></li>
+                    <li><a href="/vehicles/electric">Electric</a></li>
                 </ul>
             </div>
             <div class="footer-column" id="contact">
-                <h3>Contact With Us</h3>
-                <address>
-                    <div class="social-icons">
-                        <a href="https://facebook.com" aria-label="Follow us on Facebook"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook icon" loading="lazy"></a>
-                        <a href="https://twitter.com" aria-label="Follow us on Twitter"><img src="https://cdn-icons-png.flaticon.com/512/733/733614.png" alt="Twitter icon" loading="lazy"></a>
-                        <a href="https://instagram.com" aria-label="Follow us on Instagram"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Instagram icon" loading="lazy"></a>
-                        <a href="https://youtube.com" aria-label="Follow us on YouTube"><img src="https://cdn-icons-png.flaticon.com/512/733/733635.png" alt="YouTube icon" loading="lazy"></a>
-                    </div>
-                </address>
+                <h3>Contact Us</h3>
+                <div class="social-icons">
+                    <a href="https://facebook.com"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook icon" loading="lazy"></a>
+                    <a href="https://twitter.com"><img src="https://cdn-icons-png.flaticon.com/512/733/733614.png" alt="Twitter icon" loading="lazy"></a>
+                    <a href="https://instagram.com"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Instagram icon" loading="lazy"></a>
+                    <a href="https://youtube.com"><img src="https://cdn-icons-png.flaticon.com/512/733/733635.png" alt="YouTube icon" loading="lazy"></a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 ILMLACARS. All Rights Reserved.</p>
+            <p>© 2025 EldrCARS. All Rights Reserved.</p>
         </div>
     </footer>
-<script>
-    function toggleMenu() {
-        const navMenu = document.getElementById('nav-menu');
-        const reLog = document.querySelector('.re-log');
-        navMenu.classList.toggle('show');
-        reLog.classList.toggle('show');
-    }
-</script>
-        
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            const authButtons = document.querySelector('.auth-buttons');
+            navMenu.classList.toggle('show');
+            authButtons.classList.toggle('show');
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.scroll-reveal').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>

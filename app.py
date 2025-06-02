@@ -68,11 +68,25 @@ def bosh_sahifa():
     try:
         with get_db_connection() as conn:
             cursor = conn.cursor()
-            cursor.execute("SELECT * FROM mahsulotlar")
+            cursor.execute("SELECT * FROM mahsulotlar LIMIT 4")
             mahsulotlar = cursor.fetchall()
         return render_template("index.html", mahsulotlar=mahsulotlar)
     except sqlite3.Error as e:
         logger.error(f"Database error in bosh_sahifa: {e}")
+        return render_template("error.html", message="Ma'lumotlar bazasida xatolik yuz berdi"), 500
+
+@app.route('/cars')
+def cars():
+    if "foydalanuvchi" not in session:
+        return redirect(url_for("login"))
+    try:
+        with get_db_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM mahsulotlar")
+            mahsulotlar = cursor.fetchall()
+        return render_template("cars.html", mahsulotlar=mahsulotlar)
+    except sqlite3.Error as e:
+        logger.error(f"Database error in cars: {e}")
         return render_template("error.html", message="Ma'lumotlar bazasida xatolik yuz berdi"), 500
 
 @app.route('/mahsulot_qoshish', methods=['GET', 'POST'])

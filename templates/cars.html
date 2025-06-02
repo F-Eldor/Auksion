@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ mahsulot.nomi }} - Eldr Cars</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="icon" href="/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-wrapper">
+            <div class="logo">
+                <h1>Eldr Cars</h1>
+            </div>
+            <nav aria-label="Main navigation">
+                <ul id="nav-menu">
+                    <li><a href="/#home">Home</a></li>
+                    <li><a href="/#cars">Cars</a></li>
+                    <li><a href="/#about">About</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    {% if session['foydalanuvchi'] %}
+                        <a href="/logout" class="logout">Log Out</a>
+                    {% else %}
+                        <a href="/register" class="register">Register</a>
+                        <a href="/login" class="login">Sign In</a>
+                    {% endif %}
+                </div>
+            </nav>
+            <button class="hamburger" aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="product-detail">
+            <h1>{{ mahsulot.nomi }}</h1>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <div class="product-info">
+                {% if mahsulot.rasm_url %}
+                    <img src="{{ mahsulot.rasm_url }}" alt="{{ mahsulot.nomi }}" class="product-image">
+                {% endif %}
+                <p>{{ mahsulot.tavsifi }}</p>
+                <p><strong>Joriy narx:</strong> {{ mahsulot.hozirgi_narx }} so'm</p>
+                <p><strong>Sotish muddati:</strong> {{ mahsulot.sotish_muddati }}</p>
+                {% if is_active %}
+                    <form method="post" class="bid-form">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                        <div class="form-group">
+                            <input type="number" name="taklif_narx" placeholder="Taklif narxi (so'm)" required>
+                        </div>
+                        <button type="submit" class="submit-button">Taklif qilish</button>
+                    </form>
+                {% else %}
+                    <p class="error">Auksion muddati tugagan</p>
+                {% endif %}
+            </div>
+            <h2>Oxirgi takliflar</h2>
+            <ul class="bid-list">
+                {% for taklif in takliflar %}
+                    <li>{{ taklif.narx }} so'm - {{ taklif.vaqt }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            const authButtons = document.querySelector('.auth-buttons');
+            navMenu.classList.toggle('show');
+            authButtons.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>
